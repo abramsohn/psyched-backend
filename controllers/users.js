@@ -33,10 +33,6 @@ router.post('/signup', async (req, res) => {
     });
     // return the user the to browser
     res.json(user)
-    
-
-
-
 });
 
 
