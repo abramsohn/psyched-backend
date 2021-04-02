@@ -25,7 +25,7 @@ app.use(cors(corsOptions));
 app.use(express.json())
 app.use(cookieParser());
 
-//extract user from JWT
+//extract user from JWT and append it to requests
 app.use((req, res, next) => {
     const { token } = req.cookies;
     if (token) {
