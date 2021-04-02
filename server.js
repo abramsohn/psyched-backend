@@ -1,5 +1,6 @@
 // DEPENDENCIES //
 const express = require('express');
+require('dotenv').config();
 
 // CONFIGURATION //
 const app = express();
@@ -11,7 +12,7 @@ const app = express();
 // CONTROLLERS //
 
 // LISTENER //
-const PORT = 3000;
+const PORT = 3004;
 
 
 app.listen(PORT, () => {
