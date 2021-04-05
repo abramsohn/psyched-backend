@@ -9,6 +9,18 @@ const { Role } = require('@prisma/client');
 // CONFIGURATION //
 const prisma = new Prisma.PrismaClient();
 
+//get
+router.get('/', async (req, res) => {
+    const user = await prisma.user.findUnique({
+        where: { id: req.userId }
+    });
+
+    res.json({
+        name: user.name,
+        role: user.role
+    });
+});
+
 // signup
 router.post('/signup', async (req, res) => {
     let { name, email, password } = req.body
