@@ -4,6 +4,7 @@ const Prisma = require('@prisma/client')
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const { Role } = require('@prisma/client');
 
 // CONFIGURATION //
 const prisma = new Prisma.PrismaClient();
@@ -30,8 +31,11 @@ router.post('/signup', async (req, res) => {
         httpOnly: true,
         maxAge: 1000 * 60 * 60 * 24 * 14, // 2 weeks in milisecs
     });
-    // return the user the to browser
-    res.json(user);
+    // return the user and and role the to client
+    res.json({
+        name: user.name,
+        role: user.role
+    });
 });
 
 //signin
@@ -39,7 +43,7 @@ router.post('/signin', async (req, res) => {
     const { email, password } = req.body
     // Check if email exist
     const user = await prisma.user.findUnique({
-        where: { email }
+        where: { email },
     });
     if (!user) {
         throw new Error(`No user found for email ${email}`)
@@ -58,13 +62,15 @@ router.post('/signin', async (req, res) => {
         httpOnly: true,
         maxAge: 1000 * 60 * 60 * 24 * 14, // 2 weeks in milisecs
     });
-    // return the user the to browser
-    res.json(user);
+    // return the user and and role the to client
+    res.json({
+        name: user.name,
+        role: user.role
+    });
 });
 
 //signout
 router.post('/signout', async (req, res) => {
-    console.log('signingout')
     res.clearCookie('token');
     // return the user the to browser
     res.json({message: 'Goodbye'});
