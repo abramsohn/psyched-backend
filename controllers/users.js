@@ -11,14 +11,21 @@ const prisma = new Prisma.PrismaClient();
 
 //get
 router.get('/', async (req, res) => {
-    const user = await prisma.user.findUnique({
-        where: { id: req.userId }
-    });
+    if (!req.userId) {
+       res.json({
+            name: null,
+            role: null
+        });
+    } else {
+        const user = await prisma.user.findUnique({
+            where: { id: req.userId }
+        });
 
-    res.json({
-        name: user.name,
-        role: user.role
-    });
+        res.json({
+            name: user.name,
+            role: user.role
+        });
+    } 
 });
 
 // signup
