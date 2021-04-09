@@ -41,6 +41,8 @@ app.use((req, res, next) => {
 const usersController = require('./controllers/users');
 app.use('/users', usersController);
 
+const distressEventsController = require('./controllers/distressEvents');
+app.use('/distress-events', distressEventsController);
 
 // LISTENER //
 const PORT = process.env.PORT
