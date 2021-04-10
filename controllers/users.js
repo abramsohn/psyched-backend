@@ -14,7 +14,8 @@ router.get('/', async (req, res) => {
     if (!req.userId) {
        res.json({
             name: null,
-            role: null
+            role: null,
+            avatarImage: null
         });
     } else {
         const user = await prisma.user.findUnique({
@@ -23,7 +24,8 @@ router.get('/', async (req, res) => {
 
         res.json({
             name: user.name,
-            role: user.role
+            role: user.role,
+            avatarImage: user.avatarImage
         });
     } 
 });
@@ -98,7 +100,6 @@ router.post('/signout', async (req, res) => {
 
 // Update Image
 router.put('/image', async (req, res) => {
-    console.log('image upload')
     let { image } = req.body
     const user = await prisma.user.update({
         where: {
