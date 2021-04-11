@@ -44,12 +44,6 @@ app.use('/users', usersController);
 const distressEventsController = require('./controllers/distressEvents');
 app.use('/distress-events', distressEventsController);
 
-// ROUTES //
-app.get('/', (req, res) => {
-  res.send('hello world')
-});
-
-
 // LISTENER //
 const PORT = process.env.PORT
 
