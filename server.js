@@ -8,7 +8,8 @@ require('dotenv').config();
 // CONFIGURATION //
 const app = express();
 // cors configurations
-const whitelist = ['http://localhost:3000', 'https://psyched-frontend.herokuapp.com'];
+// const whitelist = ['http://localhost:3000', 'https://psyched-frontend.herokuapp.com'];
+const whitelist = ['*'];
 const corsOptions = {
     credentials: true,
     origin: function (origin, callback) {
