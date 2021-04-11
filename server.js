@@ -21,7 +21,7 @@ const corsOptions = {
 }
 
 // MIDDLEWARE
-app.use(cors('*'));
+app.use(cors({ origin: 'https://psyched-frontend.herokuapp.com' , credentials :  true}));
 app.use(express.json())
 app.use(cookieParser());
 
