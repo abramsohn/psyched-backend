@@ -21,7 +21,8 @@ const corsOptions = {
 }
 
 // MIDDLEWARE
-app.use(cors({ origin: 'https://psyched-frontend.herokuapp.com' , credentials :  true}));
+// app.use(cors({ origin: 'https://psyched-frontend.herokuapp.com' , credentials :  true}));
+app.use(cors( corsOptions ));
 app.use(express.json())
 app.use(cookieParser());
 
@@ -35,14 +36,13 @@ app.use((req, res, next) => {
     next();
 });
 
-// MODELS //
-
 // CONTROLLERS //
 const usersController = require('./controllers/users');
 app.use('/users', usersController);
 
 const distressEventsController = require('./controllers/distressEvents');
 app.use('/distress-events', distressEventsController);
+
 
 // LISTENER //
 const PORT = process.env.PORT
