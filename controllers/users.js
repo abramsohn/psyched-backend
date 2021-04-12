@@ -33,10 +33,10 @@ router.get('/', async (req, res) => {
 
 //get therapist's clients
 router.post('/clients', async (req, res) => {
-   const clients = await prisma.user.findMany({
+    const clients = await prisma.user.findMany({
         where: { therapistId: req.userId },
-   })
-    res.json({ clients });    
+    })
+    res.json({ clients });
 });
 
 // signup
@@ -177,6 +177,5 @@ router.put('/image', async (req, res) => {
     console.log(updatedUser)
     res.json({image: updatedUser.avatarImage});
 });
-
 // EXPORT //
 module.exports = router;
