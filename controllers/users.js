@@ -100,16 +100,16 @@ router.post('/signout', async (req, res) => {
 
 // Update Image
 router.put('/image', async (req, res) => {
-    let { image } = req.body
-    const user = await prisma.user.update({
+    const updatedUser = await prisma.user.update({
         where: {
             id: req.userId,
         },
         data: {
-            avatarImage: image,
+            avatarImage: req.body.image
         }
-    });
-    res.json({message: 'Image was uploaded successfully'});
+    })
+    console.log(updatedUser)
+    res.json({image: updatedUser.avatarImage});
 });
 
 // EXPORT //
