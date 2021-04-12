@@ -21,6 +21,9 @@ model User {
   name             String
   password         String
   avatarImage      String?
+  therapistId      Int?
+  therapist        User?           @relation("TherapistClient", fields: [therapistId], references: [id])
+  clients          User[]          @relation("TherapistClient")
   resetToken       String?
   resetTokenExpiry Float?
   role             Role            @default(CLIENT)
