@@ -110,19 +110,21 @@ router.get('/therapists', async (req, res) => {
 });
 
 //signin
-router.post('/signin', async (req, res) => {
+router.post('/signin', async (req, res, next) => {
     const { email, password } = req.body
     // Check if email exist
     const user = await prisma.user.findUnique({
         where: { email },
     });
     if (!user) {
-        throw new Error(`No user found for email ${email}`)
+        res.json({ messege: `User not found` });
+        return false;
     }
     // check if passwords matches
     const valid = await bcrypt.compare(password, user.password);
     if (!valid) {
-        throw new Error('Password is invalid');
+        res.json({ messege: 'Password is invalid' });
+        return false;
     }
     // create a jwt to sign in the user
     const token = jwt.sign({ userId: user.id }, process.env.SECRET);
