@@ -136,7 +136,9 @@ router.post('/signin', async (req, res) => {
     // return the user and and role the to client
     res.json({
         name: user.name,
-        role: user.role
+        role: user.role,
+        avatarImage: user.avatarImage,
+        therapist: user.therapistId
     });
 });
 
