@@ -133,6 +133,8 @@ router.post('/signin', async (req, res) => {
         httpOnly: true,
         maxAge: 1000 * 60 * 60 * 24 * 14, // 2 weeks in milisecs
     });
+    console.log(user)
+    console.log(token)
     // return the user and and role the to client
     res.json({
         name: user.name,
