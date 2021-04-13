@@ -47,7 +47,6 @@ app.use('/distress-events', distressEventsController);
 // LISTENER //
 const PORT = process.env.PORT
 
-
 app.listen(PORT, () => {
     console.log('Express listening at', PORT);
 });
