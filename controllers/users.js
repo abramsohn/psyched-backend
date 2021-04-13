@@ -179,5 +179,6 @@ router.put('/image', async (req, res) => {
     console.log(updatedUser)
     res.json({image: updatedUser.avatarImage});
 });
+
 // EXPORT //
 module.exports = router;
