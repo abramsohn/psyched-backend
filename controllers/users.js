@@ -129,7 +129,7 @@ router.post('/signin', async (req, res) => {
 
     // set the jwt as a cookie in the response
     res.cookie('token', token, {
-        sameSite:'strict',
+        sameSite:'none',
         httpOnly: true,
         maxAge: 1000 * 60 * 60 * 24 * 14, // 2 weeks in milisecs
     });
