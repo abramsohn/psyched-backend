@@ -2,16 +2,16 @@
 
 ## Overview
 
-Psyched is an app that helps DBT clients to practice skills for managing emotions. While clients acquire skills in groups, the app helps to support practice and generalization.
+Psyched is a fullstack app that helps Dialectical Behavior Therapy (DBT) clients to practice skills for managing emotions. While clients acquire skills in groups, the app helps to support skill practice and generalization.
 
-Psyched also allows therapists to track clients' implementation of the daily use of the skills, and tracking their success
+Psyched also allows therapists to track clients' implementation of the skills, and monitor their progress.
 
 https://psyched-frontend.herokuapp.com/
 
 ## Technologies Used
 
 - Languages: HTML5, CSS3, Javascript
-- Frameworks: React, Node, Express
+- Frameworks: React, Node.js, Express.js
 - Database: Postgres with Prisma ORM
 - APIs: Cloudinary
 - Packages: React Router, jsonwebtoken, bcrypt
@@ -20,7 +20,7 @@ https://psyched-frontend.herokuapp.com/
 
 On the front-end:
 
-- User signup and login including custom hook with user authentication
+- User signup and login including custom hook for user authentication
 - Multi-step form
 - Interactive user interface
 - Image uploading
@@ -34,7 +34,5 @@ On the back-end:
 
 - Refactoring, refactoring, refactoring
 - Re-design on the skills form flow
-- Better Error handling
-- Flash Messages
-- User profile and preference
+- User profile and preferences
 - Implementation new features that will support DBT clients and therapists
